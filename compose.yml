@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: nginx:mainline-alpine
+    image: nginx:mainline-alpine-slim
     restart: always
     ports:
       - 80:80
