@@ -1,4 +1,5 @@
 #!/bin/sh
+mkdir -p logs
 docker compose down
 date >> logs/certbot.log
 docker run --rm -it \
