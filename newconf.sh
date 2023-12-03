@@ -10,12 +10,7 @@ if [[ ! -f nginx.conf ]]; then
 server {
   listen 80;
   listen [::]:80;
-  server_name; # domain names separated by comma
   server_tokens off;
-
-  location /.well-known/acme-challenge/ {
-    root /var/www/certbot;
-  }
 
   location / {
     return 301 https://$host$request_uri;
@@ -25,11 +20,8 @@ server {
 fi
 
 # # Check if config for the domain alreay exists
-# cat nginx.conf | grep $1 >/dev/null && echo "Domain $1 already exists" && exit
-# cat nginx.conf | grep $2 >/dev/null && echo "Server $2 already exists" && exit
-
-# Insert domain name into server_name
-sed -i '' -e 's/\(server_name.*\)\(; #.*\)/\1 '$1'\2/g' nginx.conf
+cat nginx.conf | grep "server_name $1" >/dev/null && echo "Domain $1 already exists" && exit
+cat nginx.conf | grep "http://$2" >/dev/null && echo "Server $2 already exists" && exit
 
 # Insert server config
 echo '
@@ -47,4 +39,3 @@ server {
   }
 }
 ' >>nginx.conf
-
