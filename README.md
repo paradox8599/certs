@@ -16,4 +16,6 @@
 
 ## Auto Renew
 
-Execute `crontab.sh` to add auto renew task
+Execute `./crontab.sh` to add auto renew task
+
+Execute `./crontab.sh rm` to remove auto renew task
