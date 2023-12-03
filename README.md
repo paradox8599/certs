@@ -14,6 +14,8 @@
 ./newconf.sh <domain name> <container_host:port>
 ```
 
+> Note: Docker container should also connect to the `nginx-proxy` network
+
 ## Auto Renew
 
 Execute `./crontab.sh` to add auto renew task
