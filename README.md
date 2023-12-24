@@ -1,5 +1,7 @@
 # Nginx + Certbot
 
+Docker containers for running nginx and auto renew certs with certbot.
+
 ## Setup
 
 ### Get new certificate
